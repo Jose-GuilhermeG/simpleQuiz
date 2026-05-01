@@ -1,3 +1,5 @@
+import ThemeButton from "@/components/ui/themeButton";
+
 
 export interface HeaderLinks{
     title : string;
@@ -15,17 +17,20 @@ export default function Header({links , className} : HeaderProps){
             <h1>
             SimpleQuiz
             </h1>
-            <nav className="min-w-sm">
-                <ul className="w-full h-full flex justify-around">
-                    {links.map((element,index)=>(
-                        <li key={index} className="hover:border-b border-foreground p-1 transition-all">
-                            <a href="">
-                            {element.title}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </nav>
+            <div className="flex justify-around gap-2">
+                <nav className="min-w-sm">
+                    <ul className="w-full h-full flex justify-around">
+                        {links.map((element,index)=>(
+                            <li key={index} className="hover:border-b border-foreground p-1 transition-all">
+                                <a href="">
+                                {element.title}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                <ThemeButton/>
+            </div>
       </header>
     )
 }
