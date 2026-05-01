@@ -4,11 +4,12 @@ import { createRoot } from "react-dom/client"
 import "./index.css"
 import Home from "./pages/Home.tsx"
 import { ThemeProvider } from "@/components/theme-provider.tsx"
+import SistemRoutes from "./routes.tsx"
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ThemeProvider>
-      <Home />
+      <SistemRoutes/>
     </ThemeProvider>
   </StrictMode>
 )

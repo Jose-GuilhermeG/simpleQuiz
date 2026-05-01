@@ -1,23 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CircleQuestionMark } from "lucide-react";
 
-import Header , {type HeaderLinks} from "@/layout/Header";
-
 export default function Home() {
-  const links : Array<HeaderLinks> = [
-    {
-      title : "Repositorio",
-    },
-    {
-      title : "Criador",
-    },
-    {
-      title : "Ideia do projeto",
-    },
-  ]
   return (
-    <main className="w-screen h-screen flex flex-col items-center bg-background gap-[25%]">
-      <Header links={links} />
       <section className="min-w-lg p-2 h-fit">
             <h1 className="text-foreground font-black text-4xl flex items-center justify-center gap-5">
               Bem vindo ao quiz
@@ -35,7 +20,6 @@ export default function Home() {
             </Button>
           </div>
       </section>
-    </main>
   )
 }
 

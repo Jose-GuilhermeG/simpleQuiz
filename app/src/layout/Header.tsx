@@ -14,10 +14,10 @@ interface HeaderProps{
 export default function Header({links , className} : HeaderProps){
     return (
         <header className={`${className} h-[10vh] w-full flex justify-between items-center px-2`}>
-            <h1>
+            <h1 className="hidden lg:block">
             SimpleQuiz
             </h1>
-            <div className="flex justify-around gap-2">
+            <div className="flex lg:justify-around justify-center gap-5 w-full lg:w-fit">
                 <nav className="min-w-sm">
                     <ul className="w-full h-full flex justify-around">
                         {links.map((element,index)=>(
