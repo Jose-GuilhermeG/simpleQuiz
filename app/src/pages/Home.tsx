@@ -1,9 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CircleQuestionMark } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+
+  const navigate = useNavigate()
+
+  const startQuiz = ()=> navigate("theme/select")
+
   return (
-      <section className="min-w-lg p-2 h-fit">
+      <section className="min-w-lg p-2 h-fit mt-[10%]">
             <h1 className="text-foreground font-black text-4xl flex items-center justify-center gap-5">
               Bem vindo ao quiz
               <CircleQuestionMark className="w-10 h-10"/>
@@ -15,7 +21,7 @@ export default function Home() {
             <Button variant="outline" className="border border-foreground cursor-pointer px-2 rounded-[10px] w-2/5 py-7">
               Começar <ArrowRight/>
             </Button>
-            <Button className="cursor-pointer px-2 rounded-[10px] w-2/5 py-7">
+            <Button className="cursor-pointer px-2 rounded-[10px] w-2/5 py-7" onClick={startQuiz}>
               Começar <ArrowRight/>
             </Button>
           </div>

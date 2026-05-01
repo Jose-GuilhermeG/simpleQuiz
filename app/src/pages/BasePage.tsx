@@ -14,7 +14,7 @@ export default function BasePage(){
     },
   ]
   return (
-    <main className="w-screen h-screen flex flex-col items-center bg-background gap-[25%]">
+    <main className="w-screen h-screen flex flex-col items-center bg-background">
       <Header links={links} />
       <Outlet/>
     </main>

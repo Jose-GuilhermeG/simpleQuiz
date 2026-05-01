@@ -4,6 +4,7 @@ import { Routes , BrowserRouter , Route } from "react-router-dom";
 import Home from "./pages/Home";
 import BasePage from "./pages/BasePage";
 import NotFoundPage from "./pages/notFoundPage";
+import SelectQuizTheme from "./pages/selectQuizTheme";
 
 export default function SistemRoutes(){
     return (
@@ -11,6 +12,7 @@ export default function SistemRoutes(){
             <Routes>
                 <Route path="" element={<BasePage/>}>
                     <Route path="" element={<Home/>}/>
+                    <Route path="/theme/select/" element={<SelectQuizTheme/>}/>
                     <Route path="*" element={<NotFoundPage/>} />
                 </Route>
             </Routes>
