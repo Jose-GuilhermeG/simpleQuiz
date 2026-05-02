@@ -2,6 +2,7 @@
 
 Um projeto de quiz interativo desenvolvido com **React**, **TypeScript**, **TailwindCSS** e **shadcn/ui**.  
 O objetivo é oferecer uma experiência divertida e educativa com perguntas de múltipla escolha em diferentes categorias.
+a ideia foi tirada do site [roadmap](https://roadmap.sh/) em https://roadmap.sh/projects/quiz-app
 
 ## Acesse o projeto
 [SimpleQuiz](https://jose-guilhermeg.github.io/simpleQuiz/)
