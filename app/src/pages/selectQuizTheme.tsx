@@ -8,9 +8,11 @@ interface QuizTheme{
 
 export default function SelectQuizTheme(){
     
+    const BASE_URL = import.meta.env.BASE_URL
+
     const navigate = useNavigate()
 
-    const goToQuiz = (title : string) => navigate(`/quiz/${title.toLowerCase()}`)
+    const goToQuiz = (title : string) => navigate(`${BASE_URL}/quiz/${title.toLowerCase()}`)
 
     const quizThemes: QuizTheme[] = [
   {

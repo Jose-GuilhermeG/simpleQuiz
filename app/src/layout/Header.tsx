@@ -13,10 +13,12 @@ interface HeaderProps{
 }
 
 export default function Header({links , className} : HeaderProps){
+    const BASE_URL = import.meta.env.BASE_URL
+    
     return (
         <header className={`${className} h-[10vh] w-full flex justify-between items-center px-2`}>
             <h1 className="hidden lg:block">
-                <Link to="/">
+                <Link to={BASE_URL}>
                     SimpleQuiz
                 </Link>
             </h1>
@@ -25,9 +27,9 @@ export default function Header({links , className} : HeaderProps){
                     <ul className="w-full h-full flex justify-around">
                         {links.map((element,index)=>(
                             <li key={index} className="hover:border-b border-foreground p-1 transition-all">
-                                <a href="">
+                                <Link to={element.url || BASE_URL}>
                                 {element.title}
-                                </a>
+                                </Link>
                             </li>
                         ))}
                     </ul>

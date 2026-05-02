@@ -12,9 +12,9 @@ export default function SistemRoutes(){
         <BrowserRouter>
             <Routes>
                 <Route path="" element={<BasePage/>}>
-                    <Route path="" element={<Home/>}/>
-                    <Route path="/theme/select/" element={<SelectQuizTheme/>}/>
-                    <Route path="/quiz/:theme/" element={<QuizPage/>}/>
+                    <Route path="/simpleQuiz/" element={<Home/>}/>
+                    <Route path="/simpleQuiz/theme/select/" element={<SelectQuizTheme/>}/>
+                    <Route path="/simpleQuiz/quiz/:theme/" element={<QuizPage/>}/>
                     <Route path="*" element={<NotFoundPage/>} />
                 </Route>
             </Routes>

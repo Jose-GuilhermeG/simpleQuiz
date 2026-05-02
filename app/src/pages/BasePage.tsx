@@ -5,6 +5,7 @@ export default function BasePage(){
     const links : Array<HeaderLinks> = [
     {
       title : "Repositorio",
+      url : "https://github.com/Jose-GuilhermeG/simpleQuiz/"
     },
     {
       title : "Criador",

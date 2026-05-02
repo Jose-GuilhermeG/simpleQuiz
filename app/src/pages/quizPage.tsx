@@ -3,7 +3,7 @@ import AnswerCard from "@/features/questions/answerCard";
 import { useInterval } from "@/hooks/useinterval";
 import type { QuestionProtocol } from "@/types/questionTypes";
 import { useRef, useState} from "react";
-import { useParams } from "react-router-dom"
+//import { useParams } from "react-router-dom"
 
 export default function QuizPage(){
   const questions: QuestionProtocol[] = [
@@ -99,7 +99,7 @@ export default function QuizPage(){
   }
 ];
 
-  const parms = useParams()
+  //const parms = useParams()
     
 
     const [currentQuestionIndex,setCurrentQuestionIndex] = useState<number>(0);
@@ -108,7 +108,7 @@ export default function QuizPage(){
 
     const currentQuestion : QuestionProtocol | undefined = questions[currentQuestionIndex];
 
-    const correctAnswer = useRef<HTMLElement | undefined>(undefined);
+    const correctAnswer = useRef<HTMLDivElement | null>(null);
     
     const setAnswerColor = (isCorrectAsnwer : boolean , element : HTMLElement) =>{
       if(!isCorrectAsnwer) element.style.backgroundColor = "var(--color-red-500)"

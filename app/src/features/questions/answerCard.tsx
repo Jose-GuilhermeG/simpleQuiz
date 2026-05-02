@@ -1,12 +1,12 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type {AnswerProtocol } from "@/types/questionTypes";
-import { useEffect, type RefObject } from "react";
+import { type RefObject } from "react";
 
 interface AnswerCardProps{
     element : AnswerProtocol;
     selectAnswer : (isCorrectAnswer : boolean , element : HTMLElement) => void;
     index : number;
-    correctAnswer : RefObject<HTMLElement | undefined>;
+    correctAnswer : RefObject<HTMLDivElement | null>;
 }
 
 export default function AnswerCard({element , selectAnswer , index , correctAnswer} : AnswerCardProps){
@@ -16,7 +16,7 @@ export default function AnswerCard({element , selectAnswer , index , correctAnsw
         <Card 
             className="w-full h-fit cursor-pointer" 
             onClick={(e)=>selectAnswer(element.isCorrect , e.currentTarget)} 
-            {...{ref : element.isCorrect ? correctAnswer : undefined}}
+            {...{ref : element.isCorrect ? correctAnswer : null}}
             >
             <CardHeader>
                 <CardTitle>

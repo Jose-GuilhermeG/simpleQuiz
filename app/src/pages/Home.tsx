@@ -4,9 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
 
+  const BASE_URL = import.meta.env.BASE_URL
   const navigate = useNavigate()
 
-  const startQuiz = ()=> navigate("theme/select")
+  const startQuiz = ()=> navigate(`${BASE_URL}/theme/select`)
 
   return (
       <section className="min-w-lg p-2 h-fit mt-[10%]">
@@ -19,7 +20,7 @@ export default function Home() {
         </p>
           <div className="w-full flex justify-around my-5">
             <Button variant="outline" className="border border-foreground cursor-pointer px-2 rounded-[10px] w-2/5 py-7">
-              Começar <ArrowRight/>
+              Sobre <ArrowRight/>
             </Button>
             <Button className="cursor-pointer px-2 rounded-[10px] w-2/5 py-7" onClick={startQuiz}>
               Começar <ArrowRight/>
