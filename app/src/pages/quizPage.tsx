@@ -1,105 +1,35 @@
 import { Card, CardAction, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import AnswerCard from "@/features/questions/answerCard";
 import { useInterval } from "@/hooks/useinterval";
+import { questionsAstronomy, questionsCinema, questionsGeography, questionsHistory, questionsLiterature, questionsMath, questionsMythology, questionsSciences, questionsSports } from "@/questions";
 import type { QuestionProtocol } from "@/types/questionTypes";
-import { useRef, useState} from "react";
-//import { useParams } from "react-router-dom"
+import { useEffect, useRef, useState} from "react";
+import { useNavigate, useParams } from "react-router-dom"
 
 export default function QuizPage(){
-  const questions: QuestionProtocol[] = [
-  {
-    description: "Qual é o valor de 7 × 8?",
-    answers: [
-      { content: "54", isCorrect: false },
-      { content: "56", isCorrect: true },
-      { content: "64", isCorrect: false },
-      { content: "48", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é a raiz quadrada de 144?",
-    answers: [
-      { content: "10", isCorrect: false },
-      { content: "11", isCorrect: false },
-      { content: "12", isCorrect: true },
-      { content: "13", isCorrect: false }
-    ]
-  },
-  {
-    description: "Resolva: 25 ÷ 5",
-    answers: [
-      { content: "4", isCorrect: false },
-      { content: "5", isCorrect: true },
-      { content: "6", isCorrect: false },
-      { content: "7", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é o valor de π arredondado para duas casas decimais?",
-    answers: [
-      { content: "3.12", isCorrect: false },
-      { content: "3.14", isCorrect: true },
-      { content: "3.15", isCorrect: false },
-      { content: "3.16", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é o resultado de 2³?",
-    answers: [
-      { content: "6", isCorrect: false },
-      { content: "8", isCorrect: true },
-      { content: "9", isCorrect: false },
-      { content: "12", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é a solução da equação: x + 5 = 12?",
-    answers: [
-      { content: "x = 5", isCorrect: false },
-      { content: "x = 6", isCorrect: true },
-      { content: "x = 7", isCorrect: false },
-      { content: "x = 8", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é o perímetro de um quadrado com lado de 9 cm?",
-    answers: [
-      { content: "36 cm", isCorrect: true },
-      { content: "18 cm", isCorrect: false },
-      { content: "27 cm", isCorrect: false },
-      { content: "45 cm", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é a área de um triângulo com base 10 cm e altura 6 cm?",
-    answers: [
-      { content: "30 cm²", isCorrect: true },
-      { content: "60 cm²", isCorrect: false },
-      { content: "15 cm²", isCorrect: false },
-      { content: "20 cm²", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é o próximo número na sequência: 2, 4, 8, 16, ...?",
-    answers: [
-      { content: "24", isCorrect: false },
-      { content: "32", isCorrect: true },
-      { content: "20", isCorrect: false },
-      { content: "36", isCorrect: false }
-    ]
-  },
-  {
-    description: "Qual é o valor de 100% de 50?",
-    answers: [
-      { content: "25", isCorrect: false },
-      { content: "50", isCorrect: true },
-      { content: "75", isCorrect: false },
-      { content: "100", isCorrect: false }
-    ]
-  }
-];
+    const BASE_URL = import.meta.env.BASE_URL;
+    const parms = useParams()
+    const selectTheme : string = parms.theme?.toLowerCase() as string;
+    const navigate = useNavigate();
+    const themes = {
+      "geografia mundial" : questionsGeography,
+      "história do brasil" : questionsHistory,
+      "matemática" : questionsMath,
+      "ciência e tecnologia" : questionsSciences,
+      "arte e cultura" : questionsSciences,
+      "esportes" : questionsSports,
+      "cinema": questionsCinema,
+      "mitologia" : questionsMythology,
+      "astronomia" : questionsAstronomy,
+      "literatura": questionsLiterature,
+    }
 
-  //const parms = useParams()
+    useEffect(()=>{
+      if(!Object.keys(themes).includes(selectTheme)) navigate(`${BASE_URL}/not-found/`)
+        
+      },[selectTheme])
+
+    const questions = themes[(selectTheme as keyof typeof themes)] || [];
     
 
     const [currentQuestionIndex,setCurrentQuestionIndex] = useState<number>(0);

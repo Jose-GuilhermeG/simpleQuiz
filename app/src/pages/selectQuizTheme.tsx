@@ -65,7 +65,7 @@ export default function SelectQuizTheme(){
             </h1>
             <div className="flex flex-col gap-5 max-h-[70vh] overflow-y-scroll p-5">
                 {quizThemes.map((element,index)=>(
-                    <Card key={index} className="lg:min-h-[12vh] min-h-[15vh]" onClick={()=>goToQuiz(element.title)}>
+                    <Card key={index} className="lg:min-h-[12vh] min-h-[15vh] max-h-[20vh]" onClick={()=>goToQuiz(element.title)}>
                         <CardHeader>
                             <CardTitle>
                                 {element.title}

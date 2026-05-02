@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 export default function NotFoundPage(){
-
+    const BASE_URL = import.meta.env.BASE_URL;
     const navigate = useNavigate() 
 
-    const goToHome = ()=>navigate("/")
+    const goToHome = ()=>navigate(BASE_URL)
 
     return (
         <div>
