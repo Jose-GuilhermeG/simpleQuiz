@@ -1,4 +1,5 @@
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 interface QuizTheme{
     title : string;
@@ -7,6 +8,10 @@ interface QuizTheme{
 
 export default function SelectQuizTheme(){
     
+    const navigate = useNavigate()
+
+    const goToQuiz = (title : string) => navigate(`/quiz/${title.toLowerCase()}`)
+
     const quizThemes: QuizTheme[] = [
   {
     title: "História do Brasil",
@@ -58,7 +63,7 @@ export default function SelectQuizTheme(){
             </h1>
             <div className="flex flex-col gap-5 max-h-[70vh] overflow-y-scroll p-5">
                 {quizThemes.map((element,index)=>(
-                    <Card key={index} className="lg:min-h-[12vh] min-h-[15vh]">
+                    <Card key={index} className="lg:min-h-[12vh] min-h-[15vh]" onClick={()=>goToQuiz(element.title)}>
                         <CardHeader>
                             <CardTitle>
                                 {element.title}
