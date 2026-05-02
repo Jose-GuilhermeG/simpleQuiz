@@ -141,7 +141,7 @@ export default function QuizPage(){
 
 
     useInterval(()=>{
-      setTime(prev=>prev-1)
+      if(currentQuestion) setTime(prev=>prev-1)
       if(time < 1) result(null , false);
     },1000)
 
@@ -156,7 +156,7 @@ export default function QuizPage(){
                         {currentQuestion && currentQuestion.description}
                     </CardDescription>
                     <CardAction>
-                      {time}
+                      {currentQuestion && time}
                     </CardAction>
                 </CardHeader>
             </Card>
@@ -168,7 +168,7 @@ export default function QuizPage(){
                     ))}
                 </div>
                 :
-                <h1>
+                <h1 className="text-xl font-medium text-center text-foreground my-2">
                     Acertos : {hits}
                 </h1>
             }
@@ -178,7 +178,7 @@ export default function QuizPage(){
                 <h1 className="text-2xl font-black text-foreground text-center">
                   Questão : {currentQuestionIndex + 1} de {questions.length}
                 </h1>
-                <p className="text-xl font-medium text-center text-foreground">
+                <p className="text-xl font-medium text-center text-foreground my-2">
                   Acertos : {hits}
                 </p>
               </div>

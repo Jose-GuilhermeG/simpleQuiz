@@ -1,4 +1,5 @@
 import ThemeButton from "@/components/ui/themeButton";
+import { Link } from "react-router-dom";
 
 
 export interface HeaderLinks{
@@ -15,7 +16,9 @@ export default function Header({links , className} : HeaderProps){
     return (
         <header className={`${className} h-[10vh] w-full flex justify-between items-center px-2`}>
             <h1 className="hidden lg:block">
-            SimpleQuiz
+                <Link to="/">
+                    SimpleQuiz
+                </Link>
             </h1>
             <div className="flex lg:justify-around justify-center gap-5 w-full lg:w-fit">
                 <nav className="min-w-sm">
