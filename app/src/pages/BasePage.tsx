@@ -5,13 +5,18 @@ export default function BasePage(){
     const links : Array<HeaderLinks> = [
     {
       title : "Repositorio",
-      url : "https://github.com/Jose-GuilhermeG/simpleQuiz/"
+      url : "https://github.com/Jose-GuilhermeG/simpleQuiz/",
+      oppenNewPage : true
     },
     {
       title : "Criador",
+      url : "https://github.com/Jose-GuilhermeG/",
+      oppenNewPage : true
     },
     {
       title : "Ideia do projeto",
+      url : "https://roadmap.sh/frontend/projects?difficulty=intermediate",
+      oppenNewPage : true
     },
   ]
   return (
